@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
+from flask_cors import CORS
 
 import numpy as np
 from keras.models import load_model
@@ -7,6 +8,7 @@ from keras.models import load_model
 from mnist_classification.util import classify
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 app.config.from_envvar('FLASK_APP_SETTINGS')
